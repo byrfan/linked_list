@@ -54,11 +54,11 @@ void insert_at_pos(Node* n, int p, int m) { // insert data at a specific point i
 	n_next = new Node();
 	for(int i=0; i<=p+1; i++) { // traversing through the list
 		if(n->next!=NULL) { // if the next node is not equal to NULL
-			if(i==p-1) { 
+			if(i==p-1) {  // will only do this the node before the pos
 				n_prev = n;
-			}else if(i==p+1) {
+			}else if(i==p+1) { // will only do this the node after the pos
 				n_next = n;
-			}else {
+			}else { // does this every other time
 				n = n->next;
 			}
 		}else {
