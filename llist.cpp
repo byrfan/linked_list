@@ -1,4 +1,5 @@
 #include <iostream>
+#include "llist.hpp"
 
 class Node {
 	public:
@@ -41,9 +42,9 @@ void insert_at_pos(Node* n, int p, int m) {
 	Node* n_next = NULL;
 	n_prev = new Node();
 	n_next = new Node();
-	for(int i=0; i<=p+1; i++) {
-		if(n->next!=NULL) {
-			if(i==p-1) {
+	for(int i=0; i<=p+1; i++) { // traversing through the list
+		if(n->next!=NULL) { // if the next node is not equal to NULL
+			if(i==p-1) { // if the current node is equal to 
 				n_prev = n;
 			}else if(i==p+1) {
 				n_next = n;
@@ -76,16 +77,4 @@ Node* push(Node* n, int m) {
 	current->data = m;
 	current->next = n;
 	return current; // new head for the list
-}
-
-int main() {
-	Node* head = create_list(2);
-	append(head, 4);
-	append(head, 5);
-	head = push(head, 1);
-	insert_at_pos(head, 2, 3);
-	
-	//append(head, 10);
-	//head = push(head, 2);
-	print_list(head);
 }
